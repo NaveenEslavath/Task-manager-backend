@@ -2,22 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "src/index.ts",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["src/**"]
-      }
+      "src": "server.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "src/index.ts"
+      "dest": "/server.js"
     }
-  ],
-  "functions": {
-    "src/index.ts": {
-      "maxDuration": 30
-    }
-  }
+  ]
 }
