@@ -1,23 +1,16 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "dist/index.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/dist/index.js"
-    }
-  ],
+  "framework": null,
+  "buildCommand": "npm run vercel-build",
   "functions": {
-    "dist/index.js": {
-      "maxDuration": 30
+    "api/index.js": {
+      "runtime": "@vercel/node@3.0.0"
     }
   },
-  "env": {
-    "NODE_ENV": "production"
-  }
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api"
+    }
+  ]
 }
